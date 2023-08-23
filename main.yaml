@@ -4,4 +4,4 @@
   vars:
 
   roles:
-  - {role: 'general/ping-test', tags: ping-test}
+  - {role: 'ping-test', tags: ping-test}
