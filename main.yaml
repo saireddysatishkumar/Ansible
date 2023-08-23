@@ -1,7 +1,5 @@
 - name: master playbook
   hosts: all
 
-  vars:
-
   roles:
   - {role: 'ping-test', tags: ping-test}
