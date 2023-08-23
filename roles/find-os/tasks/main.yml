@@ -1,0 +1,3 @@
+    - name: Classify hosts depending on their OS distribution
+      ansible.builtin.group_by:
+        key: os_{{ ansible_facts['distribution'] }}
