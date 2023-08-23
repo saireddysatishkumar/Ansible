@@ -1,0 +1,7 @@
+- name: master playbook
+  hosts: all
+
+  vars:
+
+  roles:
+  - {role: 'general/ping-test', tags: ping-test}
