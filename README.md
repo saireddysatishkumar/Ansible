@@ -1,7 +1,7 @@
 # Ansible
 main.yaml
-      |
-      roles
-          |
-          - ping-test
-          - 
+        |
+        roles
+            |
+            - ping-test
+            - 
