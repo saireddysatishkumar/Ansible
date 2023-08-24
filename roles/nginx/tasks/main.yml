@@ -8,3 +8,14 @@
     - nginx
     - nginx-extras
   tags: InstallNginx
+  notify: restart-nginx
+
+
+- name: check of site is up or down.
+  uri:
+    url:  "http://{{ ansible_ssh_host }}"
+    return_content: yes
+  register: result
+  until: '"Welcome to nginx!" in result.content'
+  retries: 10
+  delay: 1
