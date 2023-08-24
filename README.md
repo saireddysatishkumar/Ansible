@@ -43,4 +43,4 @@ ansible-inventory --graph -vvv
 
 ## UseCase: 2 : Block
 ### Blocks can help in organizing code, but also enable rollbacks or output data for critical changes.  
-[Ref:](https://www.redhat.com/sysadmin/ansible-block-rescue)
+[Ref: Document](https://www.redhat.com/sysadmin/ansible-block-rescue)
