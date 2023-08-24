@@ -10,3 +10,8 @@ main.yaml
             - 
 ``````
 
+ansible-playbook -i hosts main.yaml --tags=nginx -u vagrant -b
+
+## UseCase: 1 : Dynamic inventory(aws)
+
+ansible-inventory --graph -vvv

@@ -7,7 +7,7 @@
 # .tfstate files
 *.tfstate
 *.tfstate.*
-
+awsec2/dynamicEnv/
 # Crash log files
 crash.log
 crash.*.log
