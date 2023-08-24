@@ -26,15 +26,15 @@ ansible-playbook -i hosts main.yaml -u vagrant -b --tags=ping-test -v
 
 ## Imp swithes
 ``````
-ansible-playbook -i hosts main.yaml -u vagrant -b --tags=nginx --step  -v  #interactive steps
-ansible-playbook -i hosts main.yaml -u vagrant -b --tags=nginx --check  -v  #dryrun
-ansible-playbook -i hosts main.yaml -u vagrant -b --tags=nginx --start-at-task="healthChecker" #To start from a task
+ansible-playbook -i hosts main.yaml --tags=nginx --step  -v  #interactive steps
+ansible-playbook -i hosts main.yaml --tags=nginx --check  -v  #dryrun
+ansible-playbook -i hosts main.yaml --tags=nginx --start-at-task="healthChecker" #To start from a task
 ``````
 ``````
-ansible-playbook -i hosts main.yaml -u vagrant -b --tags=ping-test --list-tasks #shows tasks and tags
-ansible-playbook -i hosts main.yaml -u vagrant -b --tags=ping-test --list-tags #shows tags
-ansible-playbook -i hosts main.yaml -u vagrant -b --tags=ping-test --list-hosts #shows hosts
-ansible-playbook -i hosts main.yaml -u vagrant -b --tags=ping-test --syntax-check #checks syntax
+ansible-playbook -i hosts main.yaml --tags=ping-test --list-tasks #shows tasks and tags
+ansible-playbook -i hosts main.yaml --tags=ping-test --list-tags #shows tags
+ansible-playbook -i hosts main.yaml --tags=ping-test --list-hosts #shows hosts
+ansible-playbook -i hosts main.yaml --tags=ping-test --syntax-check #checks syntax
 ``````
 
 ## UseCase: 1 : Dynamic inventory(aws)
@@ -43,4 +43,4 @@ ansible-inventory --graph -vvv
 
 ## UseCase: 2 : Block
 ### Blocks can help in organizing code, but also enable rollbacks or output data for critical changes.  
-[Ref:] (https://www.redhat.com/sysadmin/ansible-block-rescue)
+[Ref:](https://www.redhat.com/sysadmin/ansible-block-rescue)
