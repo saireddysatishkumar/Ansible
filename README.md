@@ -26,7 +26,7 @@ ansible-playbook -i hosts main.yaml --tags=nginx -u vagrant -b
 
 
 ## UseCase: 1 : Dynamic inventory(aws)
-https://www.cloudthat.com/resources/blog/step-by-step-guide-to-integrate-ansible-dynamic-inventory-plugin-for-aws-ec2-instances
+https://www.cloudthat.com/resources/blog/step-by-step-guide-to-integrate-ansible-dynamic-inventory-plugin-for-aws-ec2-instances  
 ansible-inventory --graph -vvv
 
 ## UseCase: 2 :
