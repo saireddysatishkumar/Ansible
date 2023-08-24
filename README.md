@@ -22,11 +22,25 @@ vagrant up
 
 > update above instances IP  in hosts file 
 
-ansible-playbook -i hosts main.yaml --tags=nginx -u vagrant -b
+ansible-playbook -i hosts main.yaml -u vagrant -b --tags=ping-test -v
 
+## Imp swithes
+``````
+ansible-playbook -i hosts main.yaml -u vagrant -b --tags=nginx --step  -v  #interactive steps
+ansible-playbook -i hosts main.yaml -u vagrant -b --tags=nginx --check  -v  #dryrun
+ansible-playbook -i hosts main.yaml -u vagrant -b --tags=nginx --start-at-task="healthChecker" #To start from a task
+``````
+``````
+ansible-playbook -i hosts main.yaml -u vagrant -b --tags=ping-test --list-tasks #shows tasks and tags
+ansible-playbook -i hosts main.yaml -u vagrant -b --tags=ping-test --list-tags #shows tags
+ansible-playbook -i hosts main.yaml -u vagrant -b --tags=ping-test --list-hosts #shows hosts
+ansible-playbook -i hosts main.yaml -u vagrant -b --tags=ping-test --syntax-check #checks syntax
+``````
 
 ## UseCase: 1 : Dynamic inventory(aws)
 https://www.cloudthat.com/resources/blog/step-by-step-guide-to-integrate-ansible-dynamic-inventory-plugin-for-aws-ec2-instances  
 ansible-inventory --graph -vvv
 
-## UseCase: 2 :
+## UseCase: 2 : Block
+### Blocks can help in organizing code, but also enable rollbacks or output data for critical changes.  
+[Ref:] (https://www.redhat.com/sysadmin/ansible-block-rescue)

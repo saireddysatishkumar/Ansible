@@ -1,21 +1,24 @@
----
-# tasks file for nginx-role
-- name: Install nginx
-  apt:
-    name={{item}}
-    state=latest
-  with_items: 
-    - nginx
-    - nginx-extras
-  tags: InstallNginx
-  notify: restart-nginx
+  - name: Insta nginx
+    block:
+      - name: installNginx
+        apt:
+          name={{item}}
+          state=latest
+        with_items: 
+          - nginx
+          - nginx-extras
+        tags: InstallNginx
+        notify: restart-nginx
 
-
-- name: check of site is up or down.
-  uri:
-    url:  "http://{{ ansible_ssh_host }}"
-    return_content: yes
-  register: result
-  until: '"Welcome to nginx!" in result.content'
-  retries: 10
-  delay: 1
+      - name: healthChecker
+        uri:
+          url:  "http://{{ ansible_ssh_host }}"
+          return_content: yes
+        register: result
+        until: '"Welcome to nginx!" in result.content'
+        retries: 10
+        delay: 1
+    when: ansible_facts['distribution'] == 'Ubuntu'
+    become: true
+    become_user: root
+    ignore_errors: true
