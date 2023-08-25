@@ -1,8 +1,12 @@
 # Ansible
+
+Managing infrastructure through code! Dive into Ansible code snippets for provisioning and configuring resources across cloud platforms.  
+
+
 ``````
-vagrant #to create a vagrant box
-awsec2  #to create ec2 instance in aws
-main.yaml
+- vagrant       #to create a vagrant box
+- awsec2        #to create ec2 instance in aws
+- main.yaml
         |
         roles   # ansible roles
             |
@@ -11,20 +15,20 @@ main.yaml
 ``````
 
 ## Prerequisites:
-> create aws ec2
-cd awsec2
+> create aws ec2  
+cd awsec2  
 terraform init  
 terraform apply -var="subnet_id=subnet-vvvvvvvvv" -var="vpc_id=vpc-xxxxx" -lock=false  
 
-> create vagrant ## vagrant and vmware must be already installed
-cd vagrant
-vagrant up
+> create vagrant ## vagrant and vmware must be already installed  
+cd vagrant 
+vagrant up  
 
-> update above instances IP  in hosts file 
+> update above instances IP  in hosts file  
 
-ansible-playbook -i hosts main.yaml -u vagrant -b --tags=ping-test -v
+ansible-playbook -i hosts main.yaml -u vagrant -b --tags=ping-test -v  
 
-## Imp swithes
+## Important ansible commandline swithes
 ``````
 ansible-playbook -i hosts main.yaml --tags=nginx --step  -v  #interactive steps
 ansible-playbook -i hosts main.yaml --tags=nginx --check  -v  #dryrun
@@ -44,3 +48,10 @@ ansible-inventory --graph -vvv
 ## UseCase: 2 : Ansible playbook "block"
 ### Blocks can help in organizing code, but also enable rollbacks or output data for critical changes.  
 [Ref: Document](https://www.redhat.com/sysadmin/ansible-block-rescue)
+
+## UseCase: 3 : Ansible playbook "variables"
+### variable selection:
+
+
+## Setup up the AWX(ansible tower) local environment using minikube.
+[Ansible Tower/AWX](https://github.com/saireddysatishkumar/K8S/tree/main/awx)
