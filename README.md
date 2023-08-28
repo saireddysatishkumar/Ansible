@@ -21,7 +21,7 @@ terraform init
 terraform apply -var="subnet_id=subnet-vvvvvvvvv" -var="vpc_id=vpc-xxxxx" -lock=false  
 
 > create vagrant ## vagrant and vmware must be already installed  
-cd vagrant 
+cd vagrant  
 vagrant up  
 
 > update above instances IP  in hosts file  
