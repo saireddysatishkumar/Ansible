@@ -1,0 +1,8 @@
+---
+  - name: "UpdateHostsFile"
+    copy:
+      src: "{{ item.src }}"
+      dest: "{{ item.dest }}"
+    with_items:
+      - { src: "{{config_base_dir}}/etc/hosts", dest: "/etc/hosts" }
+    tags: UpdateHostsFile

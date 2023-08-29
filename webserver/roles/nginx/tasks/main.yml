@@ -1,0 +1,77 @@
+---
+  - name: "InstallNginx"
+    apt: name={{ item }} state=latest
+    with_items:
+      - nginx
+      - nginx-extras
+    tags: InstallNginx
+
+  - name: "NginxConf"
+    copy:
+      src: "{{ item.src }}"
+      dest: "{{ item.dest }}"
+    with_items:
+      - { src: "{{config_base_dir}}{{nginx_conf}}", dest: "{{nginx_conf}}" }
+      - { src: "{{config_base_dir}}{{ssl_wildcard_conf}}", dest: "{{ssl_wildcard_conf}}" }
+      - { src: "{{config_base_dir}}/etc/nginx/dhparam.pem", dest: "/etc/nginx/dhparam.pem" }
+      - { src: "{{config_base_dir}}/etc/nginx/sites-available", dest: "/etc/nginx/" }
+      - { src: "{{config_base_dir}}/etc/nginx/custom.d", dest: "/etc/nginx/" }
+    tags: NginxConf
+
+    #  - name: "SslCerts"
+    #copy:
+    #  src: "{{ item.src }}"
+    #  dest: "{{ item.dest }}"
+    #  mode: 400
+    #with_items:
+    #  - { src: "{{config_base_dir}}/etc/ssl/private", dest: "/etc/ssl/" }
+    #tags: SslCerts
+
+    #- name: "SslEvConf"
+    #copy:
+    #  src: "{{ item.src }}"
+    #  dest: "{{ item.dest }}"
+    #with_items:
+    #  - { src: "{{config_base_dir}}{{ssl_ev_conf}}", dest: "{{ssl_ev_conf}}" }
+    #when: "{{ env == 'prod'}}"
+    #tags: SslEvConf
+
+  - name: "FindFiles"
+    find:
+      paths: /etc/nginx/sites-available
+      patterns: "*apple*"
+      file_type: file
+    register: find_available
+    tags: FindFiles
+
+  - name: FindLinks
+    find:
+      paths: /etc/nginx/sites-enabled
+      file_type: link
+    register: find_enabled
+    tags: FindLinks
+
+  - name: CleanOldLinks
+    file:
+      path: "{{ item.path }}"
+      state: absent
+    with_items: "{{ find_enabled.files }}"
+    become: True
+    tags: CleanOldLinks
+
+  - name: "SymLink" 
+    file:
+      dest: /etc/nginx/sites-enabled/{{ item.path | basename }}
+      src: "{{ item.path }}"
+      state: link
+      force: yes
+    with_items: "{{ find_available.files }}"
+    tags: SymLink
+
+  - name: "RemoveDefaultNginxConf" 
+    file:
+      path: "{{ item }}"
+      state: absent
+    with_items:
+      - /etc/nginx/sites-available/default
+    tags: RemoveDefaultNginxConf

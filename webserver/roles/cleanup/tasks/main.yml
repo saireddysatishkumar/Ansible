@@ -1,0 +1,8 @@
+---
+  - name: "AptCacheUpdate"
+    apt: update_cache=yes upgrade=yes
+    tags: "AptCacheUpdate"
+    
+  - name: "AptAutoremove"
+    apt: autoremove=yes purge=yes
+    tags: "AptAutoremove"

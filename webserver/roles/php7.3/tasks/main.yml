@@ -1,0 +1,47 @@
+---
+  - name: "Add repository for PHP 7.3"
+    apt_repository: 
+      repo="ppa:ondrej/php" 
+      update_cache=yes
+    tags: AddRepo
+
+  - name: "Install PHP7.3 Packages"
+    apt: pkg={{ item }} state=latest
+    with_items:
+      - php7.3-fpm 
+      - php7.3
+      - php7.3-pgsql
+      - php7.3-soap
+      - php7.3-xml
+      - php7.3-curl
+      - php7.3-bcmath
+      - php7.3-bz2
+      - php7.3-zip
+      - php7.3-redis
+      - php7.3-mysql
+      - php7.3-mbstring
+      - php-pear
+      - php7.3-dev
+      - php7.3-gd
+    tags: InstallPHP7.3
+
+  - name: "Add opcache extention"
+    copy:
+     src: configs/apple_{{env}}_web1/etc/php/7.3/mods-available/{{ item }}
+     dest: /etc/php/7.3/mods-available/{{ item }}
+    with_items:
+      - opcache.ini
+    tags: AddExtenstions
+
+  - name: "Enable mcrypt module"
+    shell: sudo phpenmod mcrypt
+    tags: EnableMcrypt
+
+  - name: "RemoveDefaultPhp" 
+    file:
+      path: "{{ item }}"
+      state: absent
+    with_items:
+      - /usr/sbin/php-fpm7.3
+      - /etc/init.d/php7.3-fpm
+    tags: RemoveDefaultPhp

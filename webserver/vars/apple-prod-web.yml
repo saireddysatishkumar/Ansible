@@ -1,0 +1,3 @@
+---
+config_base_dir: configs/live/apple_prod_web1
+ssl_ev_conf: /etc/nginx/ssl-ev.conf

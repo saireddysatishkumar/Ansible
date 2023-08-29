@@ -1,0 +1,10 @@
+---
+# tasks file for printinputvar
+vars_prompt:
+ - name: passphrase
+ prompt: Enter Passphrase
+ private: yes
+
+- name: Print Input
+  debug:
+    msg: {{ passwrodi }} 

@@ -1,0 +1,75 @@
+---
+- name: "RestartNginx"
+  service:
+    name: nginx
+    state: restarted
+  tags: "RestartNginx"
+
+- name: "ReloadNginx"
+  service:
+    name: nginx
+    state: reloaded
+  tags: "ReloadNginx"
+
+- name: "RestartPhpWeb"
+  systemd:
+    name: php7.0-fpm-web
+    state: restarted
+    async: 45
+  tags: "RestartPhpWeb"
+
+- name: "RestartPhpMy"
+  systemd:
+    name: php7.0-fpm-web
+    state: restarted
+    async: 45
+  tags: "RestartPhpMy"
+
+- name: "RestartPhpChat"
+  systemd:
+    name: php7.0-fpm-web
+    state: restarted
+    async: 45
+  tags: "RestartPhpChat"
+
+- name: "StartPhpWeb"
+  systemd:
+    name: php7.0-fpm-web
+    state: started
+    async: 45
+  tags: "StartPhpWeb"
+
+- name: "StartPhpMy"
+  systemd:
+    name: php7.0-fpm-web
+    state: started
+    async: 45
+  tags: "StartPhpMy"
+
+- name: "StartPhpChat"
+  systemd:
+    name: php7.0-fpm-web
+    state: started
+    async: 45
+  tags: "StartPhpChat"
+
+- name: "StopPhpWeb"
+  systemd:
+    name: php7.0-fpm-web
+    state: stopped
+    async: 45
+  tags: "StopPhpWeb"
+
+- name: "StopPhpMy"
+  systemd:
+    name: php7.0-fpm-web
+    state: stopped
+    async: 45
+  tags: "StopPhpMy"
+
+- name: "StopPhpChat"
+  systemd:
+    name: php7.0-fpm-web
+    state: stopped
+    async: 45
+  tags: "StopPhpChat"

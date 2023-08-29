@@ -1,0 +1,16 @@
+---
+- hosts: '{{ Instance }}'
+
+  vars:
+    company: apple
+    devops_dir: ./devops
+    nginx_conf: /etc/nginx/nginx.conf
+    ssl_wildcard_conf: /etc/nginx/ssl-wildcard.conf 
+
+  vars_files:
+    - "vars/apple-{{ env }}-web.yml"
+
+  roles:
+   - { role: prerequsites, tags: prerequsites }
+   - { role: nginx, tags: nginx }
+   - { role: php7.3, tags: php7.3 }
