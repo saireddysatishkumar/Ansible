@@ -17,7 +17,8 @@ Managing infrastructure through code! Dive into Ansible code snippets for provis
 ## Prerequisites:
 
 >Setup up the AWX(ansible tower) local environment using minikube.  
-[Ansible Tower/AWX](https://github.com/saireddysatishkumar/K8S/tree/main/awx)
+[Ansible Tower/AWX](https://github.com/saireddysatishkumar/K8S/tree/main/awx)  
+
 > create aws ec2  
 cd awsec2  
 terraform init  
