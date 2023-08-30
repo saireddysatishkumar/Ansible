@@ -45,14 +45,11 @@ ansible-playbook -i hosts main.yaml --tags=ping-test --list-hosts #shows hosts
 ansible-playbook -i hosts main.yaml --tags=ping-test --syntax-check #checks syntax
 ``````
 
-## UseCase: 1 : Dynamic inventory(aws)
-[Ref: Document](https://www.cloudthat.com/resources/blog/step-by-step-guide-to-integrate-ansible-dynamic-inventory-plugin-for-aws-ec2-instances)  
-ansible-inventory --graph -vvv
 
-## UseCase: 2 : Ansible playbook "block"
+## UseCase: 1 : Ansible playbook "block"
 ### Blocks can help in organizing code, but also enable rollbacks or output data for critical changes.  
 [Ref: Document](https://www.redhat.com/sysadmin/ansible-block-rescue)
 
-## UseCase: 3 : Ansible playbook "variables"
+## UseCase: 2 : Ansible Vault
 ### variable selection:
 

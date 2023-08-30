@@ -1,0 +1,16 @@
+---
+- hosts: all
+  gather_facts: no
+
+  tasks:
+
+    - name: Include vault for registry login
+      include_vars:
+        file: vars/vault.yaml
+
+    - name: Log into Docker Registry and force re-authorization
+      docker_login:
+        registry: registry-1.docker.io
+        username: "{{docker_user}}"
+        password: "{{docker_pass}}"
+        reauthorize: yes
