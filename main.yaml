@@ -5,5 +5,6 @@
   - {role: 'ping-test', tags: ping-test}
   - {role: 'find-os', tags: find-os}
   - {role: 'nginx', tags: nginx}
+  - {role: 'printinputvar', tags: printinputvar}
 
 
