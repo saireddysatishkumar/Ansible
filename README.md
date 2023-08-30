@@ -15,10 +15,13 @@ Managing infrastructure through code! Dive into Ansible code snippets for provis
 ``````
 
 ## Prerequisites:
+
+>Setup up the AWX(ansible tower) local environment using minikube.  
+[Ansible Tower/AWX](https://github.com/saireddysatishkumar/K8S/tree/main/awx)
 > create aws ec2  
 cd awsec2  
 terraform init  
-terraform apply -var="subnet_id=subnet-vvvvvvvvv" -var="vpc_id=vpc-xxxxx" -lock=false  
+terraform apply -var="subnet_id=subnet-0a0578d12a6334d5c" -var="vpc_id=vpc-05d12ae07a7397ab2" -lock=false  
 
 > create vagrant ## vagrant and vmware must be already installed  
 cd vagrant  
@@ -52,6 +55,3 @@ ansible-inventory --graph -vvv
 ## UseCase: 3 : Ansible playbook "variables"
 ### variable selection:
 
-
-## Setup up the AWX(ansible tower) local environment using minikube.
-[Ansible Tower/AWX](https://github.com/saireddysatishkumar/K8S/tree/main/awx)
