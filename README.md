@@ -106,6 +106,7 @@ MOLECULE_DISTRO=Debian10 molecule test  # It will spin container for molecule to
 
 
 ## : Ansible Galaxy :
+``````
 ============================================================================
 $ ansible-galaxy --version
 ansible-galaxy 2.4.2.0
@@ -126,4 +127,4 @@ ansible-galaxy install geerlingguy.jenkins -> Download roles from the Galaxy web
 Find ansible role's id in ansible-galaxy -> ansible-galaxy info YourUser.RoleName | grep -E 'id: [0-9]' | awk {'print $2'}
 View all ansible role details -> ansible-galaxy info YourUser.RoleName
 ============================================================================
-
+``````
