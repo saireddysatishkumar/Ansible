@@ -27,7 +27,7 @@ jobs:
       - run: pip install --upgrade pip
 
       - name: Install test dependencies.
-        run: pip3 install molcule docker yamllint ansible-lint
+        run: pip3 install -r requirements.txt
 
       - name: Run molecule tests.
         run: |

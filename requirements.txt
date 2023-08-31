@@ -1,1 +1,4 @@
-molcule docker yamllint ansible-lint
+molcule
+docker
+yamllint
+ansible-lint
