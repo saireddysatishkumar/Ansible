@@ -2,7 +2,6 @@
 
 Managing infrastructure through code! Dive into Ansible code snippets for provisioning and configuring resources across cloud platforms.  
 
-
 ``````
 - vagrant       #to create a vagrant box
 - awsec2        #to create ec2 instance in aws
@@ -13,7 +12,7 @@ Managing infrastructure through code! Dive into Ansible code snippets for provis
             - ping-test
             - 
 ``````
-
+- 💬 Note: Fork this repo to explore and contribute. This repo configured with github actions. So same will be affected into you account github actions. Please check
 ## Prerequisites:
 
 >Setup up the AWX(ansible tower) local environment using minikube.  
