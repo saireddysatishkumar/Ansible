@@ -32,4 +32,4 @@ jobs:
       - name: Run molecule tests.
         run: |
           cd apache2
-          molcule test 
+          molecule test 
