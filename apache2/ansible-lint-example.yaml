@@ -1,0 +1,14 @@
+---
+- hosts: localhost
+  gather_facts: no
+  connection: local
+
+  tasks:
+    - name: Register uptime
+      ansible.builtin.command: uptime
+      changed_when: false
+      register: uptime
+
+    - name: Print uptime
+      ansible.builtin.debug:
+        var: uptime.stdout

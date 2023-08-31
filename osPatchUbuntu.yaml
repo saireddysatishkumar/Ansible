@@ -1,0 +1,52 @@
+---
+- hosts: all
+  remote_user: vagrant 
+  gather_facts: n
+  become: yes
+
+  tasks:
+   - dpkg_selections:
+      name: "{{  item }}"
+      selection: hold
+     with_items:
+          - postgresql-12
+          - postgresql-12-postgis-3
+          - postgresql-12-postgis-3-scripts
+          - postgresql-client-12
+          - postgis
+          - postgis-doc
+          - php7.4
+          - php7.4-zip
+          - php7.4-common
+     tags: HoldPackage
+
+   - name: Updating Local Repository!!
+     apt:
+             update_cache: yes
+     tags: apt-get-update
+
+   - name: Autocleaning the local repository of retrieved package files!!
+     apt:
+             autoclean: yes
+
+   - name: Upgrading the packages!!
+     apt:
+             upgrade: yes
+             dpkg_options: 'force-confold,force-confdef'
+     tags: apt-get-upgrade 
+
+   - name: Install the following packages that have been kept back
+     apt: 
+             state: present 
+             name: "{{ item }}"
+     with_items:
+          - linux-headers-generic
+          - linux-headers-virtual
+          - linux-image-virtual
+          - linux-virtual
+
+   - name: Autoremove unused packages
+     apt:
+             autoremove: yes     
+             dpkg_options: force-confdef,force-confold
+     register: autoremove_output

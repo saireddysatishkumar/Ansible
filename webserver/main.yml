@@ -1,9 +1,9 @@
 ---
-- hosts: '{{ Instance }}'
+- hosts: all 
 
   vars:
     company: apple
-    devops_dir: ./devops
+    #devops_dir: ./devops
     nginx_conf: /etc/nginx/nginx.conf
     ssl_wildcard_conf: /etc/nginx/ssl-wildcard.conf 
 

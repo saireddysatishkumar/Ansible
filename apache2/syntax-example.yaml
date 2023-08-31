@@ -1,0 +1,12 @@
+---
+- hosts: localhost
+  gather_facts: no
+  connection: local
+
+  tasks:
+    - name: include tasks
+      ansible.builtin.include_tasks: dates.yaml
+
+    - name: print uptime
+      debug:
+        msg: "hello"

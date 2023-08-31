@@ -1,0 +1,13 @@
+---
+- hosts: localhost
+  gather_facts: no
+  connection: local
+
+  tasks:
+    - name: register uptime
+      command: uptime
+      register: system_uptime
+
+    - name: print uptime
+      debug:
+        var: system_uptime.stdout
