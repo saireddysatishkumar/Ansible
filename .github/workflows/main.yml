@@ -12,7 +12,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        distros:
+        distro:
           - centos8
           - debian10
 
@@ -32,4 +32,8 @@ jobs:
       - name: Run molecule tests.
         run: |
           cd apache2
-          molecule test 
+          molecule test
+        env:
+          PY_COLORS: '1'
+          ANSIBLE_FORCE_COLOR: '1'
+          MOLECULE_DISTRO: ${{ matrix.distro}}
