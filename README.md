@@ -82,27 +82,31 @@ pip3 install lint
 "credsStore": "desktop" - ISSUE
 "credStore": "desktop"  - FIXED
 
-- Initialize molecule scenario from playbook role.
+- Initialize molecule scenario from playbook role.  
+``````
 molecule init scenario --driver-name docker
+``````
 Note: update tasks and playbook in converge.yml according to requirements.
 
 
-- Run molecule converge from example apache2
+- Run molecule converge from example apache2  
+``````
 cd apache2 
 molecule converge #It will run molecule and leave container running for verifying
 molecule destroy
 MOLECULE_DISTRO=Debian10 molecule converge
 MOLECULE_DISTRO=Debian10 molecule destroy
+``````
 
 - Run molecule Verify
+``````
 molecule verify
-
 molecule test
+``````
+
 #To change runtime container to debian10
+``````
 MOLECULE_DISTRO=Debian10 molecule test  # It will spin container for molecule to test playbook, then destorys.
+``````
 
 
-## : 004 Ansible Galaxy :
-
-
-## : 
