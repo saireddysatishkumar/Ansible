@@ -1,0 +1,7 @@
+---
+- name: lookup
+  hosts: localhost
+  tasks:
+    - name: PringHomeDir
+      debug:
+        msg: "{{ lookup('env', 'HOME') }}"

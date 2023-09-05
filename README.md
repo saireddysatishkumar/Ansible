@@ -12,7 +12,7 @@ Managing infrastructure through code! Dive into Ansible code snippets for provis
             - ping-test
             - 
 ``````
-- 💬 Note: Fork this repo to explore and contribute. This repo configured with github actions. So same will be affected into you account github actions. Please check
+- 💬 Note: Fork this repo to explore and contribute. This repo configured with github actions. So same will be affected into your account's github actions. Please check
 ## Prerequisites:
 
 >Setup up the AWX(ansible tower) local environment using minikube.  
@@ -45,11 +45,11 @@ ansible-playbook -i hosts main.yaml --tags=ping-test --syntax-check #checks synt
 ``````
 
 
-## : Ansible playbook "block" :
+## : 001 Ansible playbook "block" :
 ### Blocks can help in organizing code, but also enable rollbacks or output data for critical changes.  
 [Ref: Document](https://www.redhat.com/sysadmin/ansible-block-rescue)
 
-## : Ansible Vault :
+## : 002 Ansible Vault :
 ### Example1:
 ``````
 cd vault-example
@@ -69,7 +69,7 @@ ansible-vault encrypt vars/vault.yaml
 # Run playbook with runtime argument --ask-valut-pass        
 ansible-playbook -i ../hosts deploy-web.yaml --ask-vault-pass -v
 ``````
-## : [Molecule](https://www.ansible.com/hubfs/AnsibleFest%20ATL%20Slide%20Decks/Practical%20Ansible%20Testing%20with%20Molecule.pdf) : 
+## : 003 [Molecule](https://www.ansible.com/hubfs/AnsibleFest%20ATL%20Slide%20Decks/Practical%20Ansible%20Testing%20with%20Molecule.pdf) : 
 - Install yamllint, ansible-lint, and molecule.
 ``````
 pip3 install yamllint
@@ -102,28 +102,7 @@ molecule test
 MOLECULE_DISTRO=Debian10 molecule test  # It will spin container for molecule to test playbook, then destorys.
 
 
+## : 004 Ansible Galaxy :
 
 
-## : Ansible Galaxy :
-``````
-============================================================================
-$ ansible-galaxy --version
-ansible-galaxy 2.4.2.0
-============================================================================
-ansible-galaxy install --roles-path . -r requirements.yml
-ansible-galaxy --offline init role_name
-============================================================================
-ansible-galaxy install -r requirements.yml
-ansible-playbook playbook.yml -i inventory 
-============================================================================
-ANSIBLE_ROLES_PATH -> The default path is /etc/ansible/roles
-ANSIBLE_ROLES_PATH -> Ansible Galaxy saves every role you install and look when resolving the imports from your playbook
-============================================================================
-ansible-galaxy init role_name -> Initialize the base structure of a new role
-ansible-galaxy search *jenkins* -> List of roles filtered
-ansible-galaxy install geerlingguy.jenkins -> Download roles from the Galaxy website
-============================================================================
-Find ansible role's id in ansible-galaxy -> ansible-galaxy info YourUser.RoleName | grep -E 'id: [0-9]' | awk {'print $2'}
-View all ansible role details -> ansible-galaxy info YourUser.RoleName
-============================================================================
-``````
+## : 

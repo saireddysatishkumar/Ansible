@@ -1,0 +1,24 @@
+---
+- name: looping
+  hosts: all
+
+  vars:
+    a: 1
+    b: [2,3]
+    c:
+    - hello: "world"
+      goodbye: "world"
+    - hello: "mike"
+      goodbye: "mike"
+    d: 
+      name: satish
+      age: 35
+      gender: male
+
+  tasks:
+    - debug:
+        msg: "hello, {{item['hello']}}"
+      loop: "{{c}}"
+    - debug:
+        msg: "hello, {{item.key}} == {{item.value}}"
+      loop: "{{d|dict2items}}"
