@@ -2,16 +2,19 @@
   - name: Demonstrating variables in Jinja2 Loops
     hosts: localhost
     connection: local
+    vars:
+       PE: 
+        - PE
+        - QA
+        - PROD
+       AV:
+        - AV
+        - SMB
 
     tasks:
-      - name: line insert
-        lineinfile:
-          path: "temp.yml"
-          line: "controller_workflows:"
-          create: yes
       - name: block in file with items
         blockinfile:
-          dest: ./temp.yml
+          dest: ./text.txt
           insertafter: BOF
           state: present
           block: |
@@ -37,23 +40,19 @@
                     organization: Test_Org
                     schedules:
                     simplified_workflow_nodes:
-          marker: "# {mark} {{PE}}-{{AV}}"
+          marker: "# {mark} ANSIBLE MANAGED BLOCK {{item}}"
         vars:
-            - PE: "{{ item.name }}"
-            - AV: "{{ item.value }}"
+           block_var:
+              PE: 
+                - PE
+                - QA
+                - PROD
+              AV:
+                - AV
+                - SMB
         with_items:
-          - name: PE
-            value: AV
-          - name: QA
-            value: AV
-          - name: PROD
-            value: AV
-          - name: PE
-            value: SMB
-          - name: QA
-            value: SMB
-          - name: PROD
-            value: SMB
-
-      - name: Move foo to bar
-        command: mv ./temp.yml output_results.yml
+            - PE
+            - QA
+            - PROD
+            - AV
+            - SMB

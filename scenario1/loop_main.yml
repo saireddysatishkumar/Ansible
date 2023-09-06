@@ -1,0 +1,20 @@
+---
+  - name: Demonstrating variables in Jinja2 Loops
+    hosts: localhost
+    connection: local
+    vars:
+       A: 
+        - PE
+        -  QA
+        - PROD
+       B:
+        - AV
+        - SMB
+
+    tasks:
+      - name: update1 
+        template: src=./templates/controller_workflows dest=./output.txt backup=yes
+        vars:
+          AV: "{{ item[0] }}"
+          PE: "{{ item[1] }}"
+        loop: "{{ A | product(B) | list }}"
