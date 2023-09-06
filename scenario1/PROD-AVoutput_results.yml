@@ -1,0 +1,23 @@
+controller_workflows:
+  - name: AV Broadsoft - RI PROD Install 2.9_3.x
+	description: This Workflow includes VM cloning from the existing template and install broadsoft on top of it
+	extra_vars:
+	  application: broadsoft
+	  app_domain: PROD   
+	survey_enabled: true
+	allow_simultaneous: false
+	ask_variables_on_launch: false
+	inventory:
+	state: present
+	limit:
+	ask_labels_on_launch: false
+	ask_skip_tags_on_launch: false
+	labels:
+	  - AV
+	scm_branch:
+	ask_inventory_on_launch: true
+	ask_scm_branch_on_launch: false
+	ask_limit_on_launch: false
+	organization: Test_Org
+	schedules:
+	simplified_workflow_nodes:

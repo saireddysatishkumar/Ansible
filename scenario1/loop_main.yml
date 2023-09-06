@@ -12,9 +12,33 @@
         - SMB
 
     tasks:
+      - name: line insert
+        lineinfile:
+          path: "output_results1.yml"
+          line: "controller_workflows:"
+          create: yes
+
       - name: update1 
-        template: src=./templates/controller_workflows dest=./output.txt backup=yes
+        template: src=./templates/controller_workflows dest=./temp/{{ item[0] }}-{{ item[1] }}output.yml
         vars:
-          AV: "{{ item[0] }}"
-          PE: "{{ item[1] }}"
+          PE: "{{ item[0] }}"
+          AV: "{{ item[1] }}"
         loop: "{{ A | product(B) | list }}"
+
+      - name: List all files in the folder
+        find:
+          paths: ./temp
+          recurse: yes
+          file_type: file
+        register: files_to_append
+
+      - name: Initialize the concatenated file
+        copy:
+          content: ""
+          dest: output_results1.yml
+
+      - name: Append files to the concatenated file
+        assemble:
+          src: ./temp
+          dest: output_results1.yml
+        with_items: "{{ files_to_append.files }}"

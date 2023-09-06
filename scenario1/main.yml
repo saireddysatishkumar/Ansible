@@ -15,11 +15,11 @@
           insertafter: BOF
           state: present
           block: |
-              - name: {{ PE }} Broadsoft - RI {{ AV }} Install 2.9_3.x
+                    - name: {{ PE }} Broadsoft - RI {{ AV }} Install 2.9_3.x
                     description: This Workflow includes VM cloning from the existing template and install broadsoft on top of it
                     extra_vars:
-                      application: broadsoft
-                      app_domain: {{ AV }}   
+                    application: broadsoft
+                    app_domain: {{ AV }}   
                     survey_enabled: true
                     allow_simultaneous: false
                     ask_variables_on_launch: false
@@ -37,7 +37,7 @@
                     organization: Test_Org
                     schedules:
                     simplified_workflow_nodes:
-          marker: "# {mark}comment"
+          marker: "# {mark} {{PE}}-{{AV}}"
         vars:
             - PE: "{{ item.name }}"
             - AV: "{{ item.value }}"
