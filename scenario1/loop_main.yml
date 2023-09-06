@@ -5,19 +5,13 @@
     vars:
        A: 
         - PE
-        -  QA
+        - QA
         - PROD
        B:
         - AV
         - SMB
 
     tasks:
-      - name: line insert
-        lineinfile:
-          path: "output_results1.yml"
-          line: "controller_workflows:"
-          create: yes
-
       - name: update1 
         template: src=./templates/controller_workflows dest=./temp/{{ item[0] }}-{{ item[1] }}output.yml
         vars:
@@ -42,3 +36,9 @@
           src: ./temp
           dest: output_results1.yml
         with_items: "{{ files_to_append.files }}"
+
+      - name: line insert
+        lineinfile:
+          path: "output_results1.yml"
+          line: "controller_workflows:"
+          insertbefore: BOF

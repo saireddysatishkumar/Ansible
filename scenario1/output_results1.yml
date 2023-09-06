@@ -1,3 +1,4 @@
+controller_workflows:
  - name: PE Broadsoft - RI AV Install 2.9_3.x
   description: This Workflow includes VM cloning from the existing template and install broadsoft on top of it
   extra_vars:
