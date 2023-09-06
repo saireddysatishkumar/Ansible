@@ -37,7 +37,7 @@
                     organization: Test_Org
                     schedules:
                     simplified_workflow_nodes:
-          marker: "# {mark} {{PE}}-{{AV}}"
+          marker: "# {mark}comment"
         vars:
             - PE: "{{ item.name }}"
             - AV: "{{ item.value }}"
