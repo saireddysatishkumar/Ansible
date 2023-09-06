@@ -1,0 +1,87 @@
+
+[
+    {
+        "make": "Mazda",
+        "model": "MX-5",
+        "year": 2004,
+        "trim": "SUV",
+        "price": "9000"
+    },
+    {
+        "make": "Volkswagen",
+        "model": "Kübelwagen",
+        "year": 1989,
+        "trim": "SUV",
+        "price": "15000"
+    },
+    {
+        "make": "Porsche",
+        "model": "Cayenne",
+        "year": 2002,
+        "trim": "SUV",
+        "price": "15000"
+    },
+    {
+        "make": "Vauxhall",
+        "model": "Chevette",
+        "year": 1975,
+        "trim": "sedan",
+        "price": "25000"
+    },
+    {
+        "make": "Ford",
+        "model": "Dymaxion car",
+        "year": 1933,
+        "price": "Concept car"
+    },
+    {
+        "make": "Ford",
+        "model": " Crown Victoria",
+        "year": 1993,
+        "trim": "sedan",
+        "price": "Full-size Ford"
+    },
+    {
+        "make": "Tesla",
+        "model": "Model X",
+        "year": 2022,
+        "trim": "SUV",
+        "price": "98000"
+    },
+    {
+        "make": "Mercedes-Benz",
+        "model": "C63 AMG",
+        "year": 2023,
+        "trim": "sedan",
+        "price": "119000"
+    },
+    {
+        "make": "Audi",
+        "model": "TT RS",
+        "year": 2022,
+        "trim": "coupe",
+        "price": "84000"
+    },
+    {
+        "make": "Lexus",
+        "model": "IS500 F sport",
+        "year": 2023,
+        "trim": "sedan",
+        "price": "95000"
+    },
+    {
+        "make": "Lexus",
+        "model": "IS300",
+        "year": 2004,
+        "trim": "sedan",
+        "price": "12000"
+    },
+    {
+        "make": "Land Rover",
+        "model": "Defender",
+        "year": 2023,
+        "trim": "SUV",
+        "price": "109000"
+    }
+]
+

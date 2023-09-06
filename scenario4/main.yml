@@ -1,0 +1,11 @@
+---
+- name: ReadJsonfile
+  hosts: localhost
+  tasks:
+  - name: Display the JSON file content
+    shell: "cat sales.json"
+    register: result
+
+  - name: debug
+    set_fact:
+      result1: "{{ result.stdout | from_json }}"
