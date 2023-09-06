@@ -1,0 +1,33 @@
+scenario 2:
+
+Attached is a repository named: RHEV that was cloned from github. It contains a playbook called "maint.yml"
+that we use to execute OS related functions across our existing server fleet. Normally, this playbook is executed 
+on our AWX server which provides a UI to ease the user of running Ansible through the command line. Today, our
+AWX server is down so this playbook must be ran locally.
+
+Enclosed in (scenario2).zip file:
+- RHEV (maint.yml playbook)
+- hostfile
+- config.yml
+
+
+task:
+- Read through the playbook to get an understanding
+- Assume the last step performed is `git clone`
+- provide the CLI commands to setup your ansible environment and execute only the `antivirus_agent` and `monitor_agent` roles using the `maint.yml` playbook on 10.2.2.16, 10.5.5.39, 10.5.5.53, and 10.6.6.53.
+
+
+
+requirements:
+- provide the CLI commands to perform the task without altering any files
+- include all supporting commands
+- provide an explanation on your thought process
+
+
+
+
+
+
+
+
+

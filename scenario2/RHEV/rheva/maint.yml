@@ -1,0 +1,51 @@
+---
+- hosts: rhv-vm
+  # roles:
+  tasks:
+    - import_role: 
+        name: on-demand-config
+      when: "'on_demand_config' in maint_role"
+
+    - import_role: 
+        name: service-reload
+      when: "'service_reload' in maint_role"
+
+    - import_role: 
+        name: monitor
+      when: "'monitor_agent' in maint_role"
+
+    - import_role: 
+        name: snmpdconf
+      when: "'snmp' in maint_role"
+      
+    - import_role: 
+        name: ntp
+      when: "'ntp' in maint_role"
+      
+      
+    - import_role: 
+        name: syslog-config
+      when: "'syslog' in maint_role"
+
+    - import_role: 
+        name: logsync
+      when: "'logsync' in maint_role"
+
+    - import_role: 
+        name: package-handler
+      when: "'package_handler' in maint_role"
+
+    - import_role: 
+        name: antivirus
+      when: "'antivirus' in maint_role"
+
+    - import_role: 
+        name: cada-removal
+      when: "'vm_remove_cada' in maint_role"
+
+    - import_role: 
+        name: opens-deploy
+      when: "'opens_agent' in maint_role"
+
+
+
