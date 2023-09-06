@@ -1,0 +1,17 @@
+---
+  - name: Demonstrating variables in Jinja2 Loops
+    hosts: localhost
+    connection: local
+    vars:
+       PE: 
+         - PE
+         - QA
+         - PROD
+       AV: 
+         - AV
+         - SMB
+
+    tasks:
+      - name: update1
+        template: src=./templates/controller_workflows dest=./output.txt
+        loop: "{{PE+AV}}"

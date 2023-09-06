@@ -2,10 +2,16 @@
 - name: ReadJsonfile
   hosts: localhost
   tasks:
-  - name: Display the JSON file content
-    shell: "cat sales.json"
-    register: result
+    - name: Get sales list from Auto Dept
+      ansible.builtin.uri:
+        url: "http://localhost:8040/sales.json"
+        follow_redirects: none
+        method: GET
+      register: json_output
 
-  - name: debug
-    set_fact:
-      result1: "{{ result.stdout | from_json }}"
+    - name: JsonSearch
+      ansible.builtin.debug:
+        msg: "{{ json_output.json | json_query(jmsquery) }}"
+      vars:
+         jmsquery: "[? trim ==`sedan`]"
+      register: auto_sedans
