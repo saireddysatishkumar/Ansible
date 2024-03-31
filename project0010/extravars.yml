@@ -1,0 +1,8 @@
+---
+target_hosts:
+- test1
+- Odooserver2
+
+install_nodes:
+- WEB
+- APP
